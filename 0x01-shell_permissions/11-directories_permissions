@@ -1,5 +1,6 @@
 #!/bin/bash
-find -type d | xargs chmod 711 .
+find -type d | xargs chmod ugo+x
+
 
 
  
