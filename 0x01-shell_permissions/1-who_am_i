@@ -1,5 +1,2 @@
-#!//bin/bash
-users
-
-
-
+#!/bin/bash
+whoami
