@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -mindepth 1 -empty | cut -f 2 -d /
+find . -empty | cut -f 2 -d /
