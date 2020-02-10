@@ -1,6 +1,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 /**
@@ -25,9 +26,12 @@ int main(void)
 
 	while (i < 5)
 	{
-		dprintf(1, "Zombie process created, PID: %d\n", getpid());
+		if (fork())
+			dprintf(1, "Zombie process created, PID: %d\n",
+				getpid());
+		else
+			exit(0);
 		i++;
-		return (0);
 	}
 	infinite_while();
 	return (0);
