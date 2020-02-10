@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Script that displays the pid without using ps
+pgrep -l bash
