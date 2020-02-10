@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Print "I am invincible!!!" when receiving a SIGTERM
+trap "echo I am invincible!!!" SIGTERM
+while :
+do
+echo "To infinity and beyond"
+done
