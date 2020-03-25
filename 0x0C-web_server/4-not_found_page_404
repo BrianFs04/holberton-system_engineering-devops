@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Custom 404 error message
+apt-get -y update
+apt-get -y install nginx
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une page" | tee /usr/share/nginx/html/custom_404.html
+command="\n\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+404_error="\n\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html \n\t{\n\troot /usr/share/nginx/html; \n\tinternal; \n\t}"
+sed -i "s/server_name _;/$command/$404_error/" /etc/nginx/sites-avaliable/default
+service nginx start
