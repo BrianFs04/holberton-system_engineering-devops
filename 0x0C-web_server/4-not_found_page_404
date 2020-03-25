@@ -5,6 +5,6 @@ apt-get -y install nginx
 echo "Holberton School" > /var/www/html/index.nginx-debian.html
 echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
 command="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;"
-errorpage="\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\troot \/usr\/share\/nginx\/html;\n\tinternal;}"
-sed -i "s/server_name _;/$command$errorpage/" /etc/nginx/sites-avaliable/default
+error="\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\troot \/usr\/share\/nginx\/html;\n\tinternal;}"
+sed -i "s/server_name _;/$command$error/" /etc/nginx/sites-available/default
 service nginx start
