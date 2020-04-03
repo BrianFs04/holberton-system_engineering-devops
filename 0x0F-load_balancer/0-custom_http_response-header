@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Adding nginx response headers
+apt-get -y update
+apt-get -y install nginx
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+command="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;"
+error="\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\troot \/usr\/share\/nginx\/html;\n\tinternal;}"
+header="\n\tadd_header X-Served-By \$hostname;"
+sed -i "s/server_name _;/$command$header$error/" /etc/nginx/sites-available/default
+service nginx start
