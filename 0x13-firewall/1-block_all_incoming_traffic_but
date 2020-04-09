@@ -1,0 +1,5 @@
+sudo apt-get install ufw
+sudo ufw allow ssh
+sudo ufw allow 'OpenSSH'
+sudo ufw allow 'NGINX HTTP'
+sudo ufw allow 'NGINX HTTPS'
