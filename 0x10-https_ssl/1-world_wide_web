@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Script that displays information about subdomains
+sub_domain=(www lb-01 web-01 web-02)
+if [ "$#" -eq 1 ]
+then
+    for i in "${sub_domain[@]}"
+    do
+	dig $i."$1" | grep -A1 'ANSWER SECTION:' | tail -n1 |
+	awk -vsubd="$i" '{print "The subdomain " subd " is a " $4 " record and points to " $5}'
+    done
+elif [ "$#" -eq 2 ]
+then
+    dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tail -n1 |
+    awk -vsubd="$2" '{print "The subdomain " subd " is a " $4 " record and points to " $5}'
+fi
