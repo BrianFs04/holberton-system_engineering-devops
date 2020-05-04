@@ -17,12 +17,12 @@ if __name__ == '__main__':
         data = {}
         for user in user_list:
             data[user.get('id')] = []
-
             for task in task_list:
-                data[user.get('id')].append({
-                    'task': task.get('title'),
-                    "completed": task.get('completed'),
-                    "username": user.get('username')
-                })
+                if task.get('userId') == user.get('id'):
+                    data[user.get('id')].append({
+                        'task': task.get('title'),
+                        "completed": task.get('completed'),
+                        "username": user.get('username')
+                    })
 
         json.dump(data, f)
