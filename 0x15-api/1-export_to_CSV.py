@@ -15,21 +15,6 @@ if __name__ == '__main__':
     completed_tasks = 0
     all_tasks = 0
 
-    for task in task_list:
-        completed = task.get('completed')
-        if completed:
-            completed_tasks += 1
-        all_tasks += 1
-
-    print('Employee {} is done with tasks ({}/{}):'
-          .format(user_list.get('name'), completed_tasks, all_tasks))
-
-    for task in task_list:
-        completed = task.get('completed')
-        task_title = task.get('title')
-        if completed:
-            print('\t {}'.format(task_title))
-
     arc_name = '{}.csv'.format(user_list.get('id'))
     with open(arc_name, mode='w') as two:
         writer = csv.writer(two, delimiter=',', quotechar='"',
