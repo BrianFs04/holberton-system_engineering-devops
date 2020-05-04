@@ -20,7 +20,7 @@ if __name__ == '__main__':
             completed_tasks += 1
         all_tasks += 1
 
-    print('Employee {} is done with tasks ({}/{}):'
+    print('Employee {} is done with tasks({}/{}):'
           .format(user_list.get('name'), completed_tasks, all_tasks))
 
     for task in task_list:
