@@ -16,7 +16,7 @@ if __name__ == '__main__':
 
     for task in task_list:
         completed = task.get('completed')
-        if completed == True:
+        if completed:
             completed_tasks += 1
         all_tasks += 1
 
@@ -26,5 +26,5 @@ if __name__ == '__main__':
     for task in task_list:
         completed = task.get('completed')
         task_title = task.get('title')
-        if completed == True:
+        if completed:
             print('\t {}'.format(task_title))
