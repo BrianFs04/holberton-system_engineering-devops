@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Subscribers of a subreddit in Reddit"""
+"""Titles of the first 10 hot posts listed for a given subreddit"""
 import requests
 
 
 def top_ten(subreddit):
-    url = "https://www.reddit.com/r/{}/top.json".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {
         'User-Agent': '1.0'
     }
