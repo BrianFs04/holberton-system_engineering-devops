@@ -33,6 +33,7 @@ server {
         }
 
         location /airbnb-onepage/ {
+                include proxy_params;
                 proxy_pass http://0.0.0.0:5000;
         }
         #
@@ -49,7 +50,7 @@ server {
         # Add index.php to the list if you are using PHP
         index index.html index.htm index.nginx-debian.html;
 
-        server_name _;
+        server_name localhost;
 
         error_page 404 /custom_404.html;
         location = /custom_404.html {
